@@ -10,6 +10,10 @@ const password = ref('');
 
 async function handleLogin(e: MouseEvent) {
   e.preventDefault();
+  if (!login.value || !password.value) {
+    userStore.setError('Please fill empty fields');
+    return;
+  }
 
   await userStore.loginUser(login.value, password.value);
   if (userStore.isAuth) {
@@ -19,7 +23,7 @@ async function handleLogin(e: MouseEvent) {
 
 watch(() => [login.value, password.value], () => {
   if (userStore.error) {
-    userStore.clearError();
+    userStore.setError('');
   }
 });
 
@@ -28,18 +32,34 @@ watch(() => [login.value, password.value], () => {
 <template>
   <main>
     <form
-      class="login-form"
+      class="login-form wrapper"
     >
-      <input
-        v-model="login"
-        name="login"
-        class="login-form_input"
-      />
-      <input
-        v-model="password"
-        name="password"
-        class="login-form_input"
-      />
+      <div class="title">
+        Authorization
+      </div>
+      <div class="login-form_element">
+        <label
+          for="login"
+          class="login-form_label"
+        >Username</label>
+        <input
+          v-model="login"
+          name="login"
+          class="login-form_input"
+        />
+      </div>
+      <div class="login-form_element">
+        <label
+          for="login"
+          class="login-form_label"
+        >Password</label>
+        <input
+          v-model="password"
+          name="password"
+          type="password"
+          class="login-form_input"
+        />
+      </div>
       <button
         class="login-form_button"
         @click="handleLogin"
@@ -55,3 +75,14 @@ watch(() => [login.value, password.value], () => {
     </form>
   </main>
 </template>
+
+<style scoped lang="scss">
+.login-form {
+  &_element {
+    margin: 0 auto 15px;
+  }
+  &_error {
+    padding: 10px 0 0;
+  }
+}
+</style>

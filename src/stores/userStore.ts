@@ -2,9 +2,9 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 
 export interface User {
-  id: number,
-  fName: string,
-  lName: string,
+  login: string,
+  password: string,
+  name: string,
   birthday: string,
 }
 
@@ -65,8 +65,13 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  function clearError() {
-    error.value = '';
+  function setError(text: string) {
+    error.value = text;
+  }
+
+  function logout() {
+    sessionStorage.removeItem('login');
+    user.value = null;
   }
 
   return {
@@ -76,6 +81,7 @@ export const useUserStore = defineStore('user', () => {
     error,
     loginUser,
     getUser,
-    clearError,
+    setError,
+    logout,
   };
 });
