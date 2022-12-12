@@ -3,6 +3,9 @@
 ## Запуск
 npm run dev
 
-## Данные авторизации
+## Данные для авторизации
 ivan:ivan
 petr:petr
+
+## Превью
+https://auth-test-silk.vercel.app/
