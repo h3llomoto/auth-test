@@ -29,31 +29,31 @@ function handleLogout(e: MouseEvent) {
         />
       </div>
       <div class="user-card_cell">
-        <label for="login">
+        <label for="password">
           Пароль
         </label>
         <input
-          name="login"
+          name="password"
           :value="userStore.user?.password"
           disabled
         />
       </div>
       <div class="user-card_cell">
-        <label for="login">
+        <label for="name">
           ФИО
         </label>
         <input
-          name="login"
+          name="name"
           :value="userStore.user?.name"
           disabled
         />
       </div>
       <div class="user-card_cell">
-        <label for="login">
+        <label for="birthday">
           Дата рождения
         </label>
         <input
-          name="login"
+          name="birthday"
           :value="userStore.user?.birthday"
           disabled
         />
