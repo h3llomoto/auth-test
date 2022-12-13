@@ -8,7 +8,7 @@ function handleLogout(e: MouseEvent) {
   e.preventDefault();
 
   userStore.logout();
-  router.push({ name: 'login' })
+  router.push({ name: 'login' });
 }
 </script>
 
