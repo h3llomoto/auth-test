@@ -15,12 +15,12 @@ function handleLogout(e: MouseEvent) {
 <template>
   <div class="user wrapper">
     <div class="title">
-      Профиль пользователя {{ userStore.user?.login }}
+      User profile {{ userStore.user?.login }}
     </div>
     <div class="user-card">
       <div class="user-card_cell">
         <label for="login">
-          Логин
+          Login
         </label>
         <input
           name="login"
@@ -30,7 +30,7 @@ function handleLogout(e: MouseEvent) {
       </div>
       <div class="user-card_cell">
         <label for="password">
-          Пароль
+          Password
         </label>
         <input
           name="password"
@@ -40,7 +40,7 @@ function handleLogout(e: MouseEvent) {
       </div>
       <div class="user-card_cell">
         <label for="name">
-          ФИО
+          Name
         </label>
         <input
           name="name"
@@ -50,7 +50,7 @@ function handleLogout(e: MouseEvent) {
       </div>
       <div class="user-card_cell">
         <label for="birthday">
-          Дата рождения
+          Birth date
         </label>
         <input
           name="birthday"
